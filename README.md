@@ -1,4 +1,6 @@
 # TensorRT-Inject-Preprocess-Postprocess-Layer
+In traditional inference pipelines, data is often transferred between CPU and GPU for preprocessing and postprocessing operations. These memory transfers introduce additional latency and synchronization overhead, which can significantly reduce overall inference performance. To address this issue, this project integrates preprocessing and postprocessing directly into the TensorRT execution graph using custom plugin layers backed by CUDA kernels. By keeping the entire pipeline on the GPU, the system minimizes unnecessary memory transfer and enables fully end-to-end GPU inference pipeline.
+## How to use
 1. Python convert from pytorch model to onnx mode
 2. C++ load onnx model then inject preprocess and postprocess layer to onnx layer
 3. C++ build engine from onnx
